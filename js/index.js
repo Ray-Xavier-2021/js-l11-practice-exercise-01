@@ -1,5 +1,5 @@
-// //Exercise #1
-// /*Skills practiced: fetch(), async/await syntax, .json(), function expression, innerHTML, for…of loop, createElement(), append()*/
+//Exercise #1
+/*Skills practiced: fetch(), async/await syntax, .json(), function expression, innerHTML, for…of loop, createElement(), append()*/
 
 //Variables
 const randomFolks = document.querySelector(".random-peeps");
@@ -9,8 +9,8 @@ const selectUserNumber = document.querySelector('#users');
 
 // //Declare async function
 
- const getData = async function () {
-    const usersRequest = await fetch('https://randomuser.me/api?results=${numUsers}');
+ const getData = async function (numUsers) {
+    const usersRequest = await fetch(`https://randomuser.me/api?results=${numUsers}`);
     const data = await usersRequest.json();
 
     //console.log(data);
