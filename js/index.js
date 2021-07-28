@@ -3,12 +3,14 @@
 
 //Variables
 const randomFolks = document.querySelector(".random-peeps");
+const selectUserNumber = document.querySelector('#users');
+
 
 
 // //Declare async function
 
  const getData = async function () {
-    const usersRequest = await fetch('https://randomuser.me/api?results=5');
+    const usersRequest = await fetch('https://randomuser.me/api?results=${numUsers}');
     const data = await usersRequest.json();
 
     //console.log(data);
@@ -17,7 +19,7 @@ const randomFolks = document.querySelector(".random-peeps");
     displayUsers(usersResults);
 };
 
- getData();
+ getData(1);
 
 //Display users function
 const displayUsers = function (usersResults) {
@@ -41,3 +43,11 @@ const displayUsers = function (usersResults) {
 };
 
 
+//Exercise #2
+/*Skills practiced: async functions, fetch, template literals, change event*/
+
+//Add 'change' event listener
+selectUserNumber.addEventListener  ('change', function (e) {
+    const numUsers = e.target.value;
+    getData(numUsers);
+});
